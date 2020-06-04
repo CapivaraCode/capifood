@@ -1,0 +1,12 @@
+.valor{
+  padding: 20px;
+  border-radius: 15px;
+  color: #000;
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+div.btn .button{
+  margin: 0;
+}

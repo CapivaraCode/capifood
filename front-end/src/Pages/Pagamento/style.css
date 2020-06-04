@@ -1,0 +1,25 @@
+select{
+  height: 40px;
+  color: #333;
+  border: 1px solid #dcdce6;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+button.flex{
+  justify-content: center;
+  align-items: center;
+}
+.button.flex > svg{
+  margin-right: 10px;
+}
+.button.flex > a{
+  margin-right: 40px;
+  color: #fff;
+  text-decoration: none;
+}
+
+select:focus{
+  border: 1px solid e02041;
+}
