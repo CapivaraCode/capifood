@@ -1,0 +1,4 @@
+{
+    "python.formatting.provider": "black",
+    "python.pythonPath": "/home/hian/workspace/CapiFood/backend/venv/bin/python"
+}
