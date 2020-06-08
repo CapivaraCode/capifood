@@ -31,13 +31,17 @@ instalacao
 
 git clone https://github.com/CapivaraCode/CapiCode
 
-cd CapiCode
+cd CapiCode/backend
 
-python -m venv venv
-
+no linux
+python3 -m venv venv
 soucer venv/scripts/activate
 
-pip install -r req.txt
+no windows instalar o python antes
+python -m venv venv
+venv/scripts/activate
+
+pip install -r requeriments
 
 rodar o projeto
 python manage.py runserver
