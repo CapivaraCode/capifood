@@ -1,7 +1,6 @@
-from produtos_pedido.models import ProdutosPedido
 from .models import Pedido
 from produtos.models import Produto
-from enumerators import PedidoEnum
+from .enumerators import PedidoEnum
 
 
 def get_total_pedido(pedido):

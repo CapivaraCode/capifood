@@ -1,34 +1,21 @@
 from django.shortcuts import render
-from produtos_pedido.seralizer import CreateProdutosPedidoSeralizer
 from rest_framework.parsers import JSONParser
-from rest_framework.viewsets import ViewSet
-from produtos_pedido.models import ProdutosPedido
+from rest_framework import viewsets
+
+# from produtos_pedido.models import ProdutosPedido
 from produtos.models import Produto
-from .models import Pedido
+from . import models
 from rest_framework.response import Response
 from drf_yasg.utils import swagger_auto_schema
-from .seralizer import PedidoSeralizer
+from . import seralizer
 from . import services
 
 
-class PedidoViewSets(ViewSet):
-    @swagger_auto_schema(
-        operation_description="GET /pedidos/",
-        responses={200: PedidoSeralizer(many=True)},
-    )
-    def list(self, request):
-        services.get_pedidos(request.user)
-        json = PedidoSeralizer(pedidos, many=True)
-        return Response(data=json.data)
+class PedidoViewSets(viewsets.ModelViewSet):
+    def get_queryset(self):
+        return models.Pedido.objects.prefetch_related().all()
 
-    @swagger_auto_schema(
-        operation_description="POST /pedidos/",
-        request_body=CreateProdutosPedidoSeralizer(many=True),
-        responses={200: PedidoSeralizer},
-    )
-    def create(self, request):
-        serializer = CreateProdutosPedidoSeralizer(data=request.data, many=True)
-        serializer.is_valid(raise_exception=True)
-        pedido = services.create_pedido(request.user, serializer.validated_data)
-        json = PedidoSeralizer(pedido)
-        return Response(data=json.data, status=200)
+    def get_serializer_class(self):
+        if self.request.method == "POST":
+            return seralizer.PedidoCreateSeralizer
+        return seralizer.PedidoSeralizer

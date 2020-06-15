@@ -10,20 +10,6 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = MyUser.objects.all()
 
-    def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = MyUser.create(
-            serializer.validated_data["username"],
-            serializer.validated_data["email"],
-            serializer.validated_data["password"],
-            True,
-        )
-        headers = self.get_success_headers(serializer.data)
-        return response.Response(
-            serializer.data, status=status.HTTP_201_CREATED, headers=headers
-        )
-
     @action(detail=False, methods=["post"])
     def login(self, request, *args, **kwargs):
 
