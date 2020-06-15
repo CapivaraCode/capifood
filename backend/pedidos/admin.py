@@ -1,8 +1,5 @@
 from django.contrib import admin
-from .models import Pedido
+from . import models
 
-# Register your models here.
-# class PedidoAdmin(admin.ModelAdmin):
-#     pass
-
-admin.site.register(Pedido)
+admin.site.register(models.Pedido)
+admin.site.register(models.ProdutoPedido)

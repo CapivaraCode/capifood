@@ -1,12 +1,46 @@
 from rest_framework import serializers
-from produtos_pedido.seralizer import ProdutosPedidoSeralizer
-from .models import Pedido
+from . import models
+from produtos.serialazers import ProdutoSerializer
+
+
+class ProdutoPedidoSeralizer(serializers.ModelSerializer):
+    produto = ProdutoSerializer(read_only=True)
+
+    class Meta:
+        model = models.ProdutoPedido
+        fields = "__all__"
+
+
+class ProdutoPedidoCreateSeralizer(serializers.Serializer):
+    produto_id = serializers.IntegerField()
+    quantidade = serializers.IntegerField()
 
 
 class PedidoSeralizer(serializers.ModelSerializer):
-    produtos = ProdutosPedidoSeralizer(many=True)
-    total = serializers.FloatField()
+    produtos = ProdutoPedidoSeralizer(many=True)
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
     class Meta:
-        model = Pedido
-        fields = ["produtos", "total", "status"]
+        model = models.Pedido
+        fields = "__all__"
+
+
+class PedidoCreateSeralizer(serializers.Serializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    produtos = ProdutoPedidoCreateSeralizer(many=True)
+
+    def create(self, validated_data):
+        produtos = [x["produto_id"] for x in validated_data["produtos"]]
+        produtos = models.Produto.objects.filter(id__in=produtos)
+        pedido = models.Pedido()
+        pedido.status = 1
+        pedido.user = validated_data["user"]
+        pedido.save()
+        for p in produtos:
+            for x in validated_data["produtos"]:
+                if p.id == x["produto_id"]:
+                    pp = models.ProdutoPedido.create(p, x["quantidade"], p.preco)
+                    pp.save()
+                    pedido.produtos.add(pp)
+
+        return pedido

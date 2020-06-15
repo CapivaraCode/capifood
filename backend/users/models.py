@@ -37,9 +37,8 @@ class MyUser(AbstractBaseUser):
     def create(cls, username, email, password, is_cliente=True, is_admin=False):
         u = MyUser()
         u.set_password(password)
-        u.nome = username
+        u.username = username
         u.email = email
         u.is_client = is_cliente
         u.is_admin = is_admin
-        u.save()
         return u
