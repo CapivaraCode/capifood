@@ -3,9 +3,9 @@ from django.db import models
 
 class Produto(models.Model):
     CATEGORIA_ENUM = (
-        ("SALGADOS", "Salgados"),
-        ("DOCES", "Doces"),
-        ("BEBIDAS", "Bebidas"),
+        ("Salgados", "Salgados"),
+        ("Sucos", "Sucos"),
+        ("Bebidas", "Bebidas"),
     )
 
     nome = models.CharField(max_length=255)

@@ -10,3 +10,18 @@
 div.btn .button{
   margin: 0;
 }
+
+.refazer-pedido{
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+
+.refazer-pedido a{
+  text-decoration: none;
+  font-weight: bold;
+  color: #e02041;
+  background: #ddd;
+  padding: 3px;
+  border-radius: 5px;
+}
