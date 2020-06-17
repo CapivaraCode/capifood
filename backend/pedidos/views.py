@@ -9,6 +9,7 @@ from rest_framework.response import Response
 from drf_yasg.utils import swagger_auto_schema
 from . import seralizer
 from . import services
+from rest_framework import generics, exceptions
 
 
 class PedidoViewSets(viewsets.ModelViewSet):
@@ -19,3 +20,17 @@ class PedidoViewSets(viewsets.ModelViewSet):
         if self.request.method == "POST":
             return seralizer.PedidoCreateSeralizer
         return seralizer.PedidoSeralizer
+
+
+class PedidoAtual(generics.RetrieveAPIView):
+    def get(self, request, *args, **kwargs):
+        pedido = (
+            models.Pedido.objects.prefetch_related()
+            .filter(user=request.user)
+            .filter(status=1)
+            .first()
+        )
+        if pedido is None:
+            raise exceptions.NotFound()
+        pedido_serializer = seralizer.PedidoSeralizer(pedido)
+        return Response(pedido_serializer.data)
