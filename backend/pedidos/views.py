@@ -14,7 +14,7 @@ from rest_framework import generics, exceptions
 
 class PedidoViewSets(viewsets.ModelViewSet):
     def get_queryset(self):
-        return models.Pedido.objects.prefetch_related().all()
+        return models.Pedido.objects.prefetch_related(user=self.request.user).all()
 
     def get_serializer_class(self):
         if self.request.method == "POST":
