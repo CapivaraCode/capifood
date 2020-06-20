@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from . import models
 from produtos.serialazers import ProdutoSerializer
+import datetime
+from .services import get_total_pedido
 
 
 class ProdutoPedidoSeralizer(serializers.ModelSerializer):
@@ -19,6 +21,11 @@ class ProdutoPedidoCreateSeralizer(serializers.Serializer):
 class PedidoSeralizer(serializers.ModelSerializer):
     produtos = ProdutoPedidoSeralizer(many=True)
     user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    total = serializers.SerializerMethodField()
+
+    def get_total(self, obj):
+
+        return sum([x.preco_venda * x.quantidade for x in obj.produtos.all()])
 
     class Meta:
         model = models.Pedido
@@ -36,6 +43,7 @@ class PedidoCreateSeralizer(serializers.Serializer):
         pedido = models.Pedido()
         pedido.status = 1
         pedido.user = validated_data["user"]
+        pedido.created_at = datetime.datetime.now()
         pedido.save()
         for p in produtos:
             for x in validated_data["produtos"]:
