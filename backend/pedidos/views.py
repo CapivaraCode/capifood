@@ -9,10 +9,12 @@ from rest_framework.response import Response
 from drf_yasg.utils import swagger_auto_schema
 from . import seralizer
 from . import services
-from rest_framework import generics, exceptions
+from rest_framework import generics, exceptions, permissions
 
 
 class PedidoViewSets(viewsets.ModelViewSet):
+    permission_classes = [permissions.IsAuthenticated]
+
     def get_queryset(self):
         return models.Pedido.objects.prefetch_related(user=self.request.user).all()
 
