@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from . import models
 from produtos.serialazers import ProdutoSerializer
+import datetime
 
 
 class ProdutoPedidoSeralizer(serializers.ModelSerializer):
@@ -37,6 +38,7 @@ class PedidoCreateSeralizer(serializers.Serializer):
         pedido = models.Pedido()
         pedido.status = 1
         pedido.user = validated_data["user"]
+        pedido.created_at = datetime.datetime.now()
         pedido.save()
         for p in produtos:
             for x in validated_data["produtos"]:
