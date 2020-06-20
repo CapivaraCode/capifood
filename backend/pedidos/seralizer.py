@@ -2,6 +2,7 @@ from rest_framework import serializers
 from . import models
 from produtos.serialazers import ProdutoSerializer
 import datetime
+from .services import get_total_pedido
 
 
 class ProdutoPedidoSeralizer(serializers.ModelSerializer):
@@ -20,6 +21,14 @@ class ProdutoPedidoCreateSeralizer(serializers.Serializer):
 class PedidoSeralizer(serializers.ModelSerializer):
     produtos = ProdutoPedidoSeralizer(many=True)
     user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    total = serializers.SerializerMethodField()
+
+    def get_total(self, obj):
+        try:
+            return get_total_pedido(obj)
+
+        except:
+            return 0
 
     class Meta:
         model = models.Pedido
