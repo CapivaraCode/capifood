@@ -102,6 +102,7 @@ function Escolha() {
 
     await api.post('/pedidos/', { produtos: pedido })
 
+    history.push('/pedido');
 
   }
 

@@ -13,29 +13,30 @@ function Pedido() {
 
   const history = useHistory();
 
-  const [pedido_desc, setPedidoDesc] = useState([]);
+  const [pedidodesc, setPedidoDesc] = useState({});
 
   useEffect(() => {
 
     async function loadPedido() {
 
+      let json;
+
       const response = await api.get('/pedido-atual/')
 
-      setPedidoDesc(response.data);
+      json = response.data;
 
+      setPedidoDesc(json)
     }
 
     loadPedido()
 
   }, []);
 
+
   function handleLogout() {
     localStorage.clear();
     history.push('/');
   }
-
-
-
 
   return (
     <div id='Main' className='page_pedido_desc'>
@@ -55,12 +56,11 @@ function Pedido() {
           <div className="card-group products">
             <h3 className="card-top">Descrição</h3>
             <ul>
-              {pedido_desc.map(produto => (
-                <li className='flex' >
-                  <div className="caixa-baixo">
-                    <p>{produto.id_produto}</p>
-                    <p className='center-text'>{produto.quantidade}</p>
-                  </div>
+              {pedidodesc?.produtos?.map(pedido => (
+                <li className='flex space' key={pedido.id} >
+                  <p>{pedido.produto.nome} </p>
+                  <p>{pedido.quantidade}</p>
+                  <p>{pedido.produto.preco}</p>
                 </li>
               ))}
             </ul>
@@ -74,7 +74,7 @@ function Pedido() {
           </div>
 
           <div className="btn">
-            <Link className='button' to='/pedido/pag'>Finalizar</Link>
+            <button className='button' type='button'>Finalizar</button>
           </div>
         </div>
       </form>

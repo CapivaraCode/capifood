@@ -25,3 +25,11 @@ div.btn .button{
   padding: 3px;
   border-radius: 5px;
 }
+.space{
+  justify-content: space-between;
+}
+
+.space p{
+  width: 30%;
+  text-align: center;
+}
