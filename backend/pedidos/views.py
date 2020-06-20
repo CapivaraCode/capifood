@@ -13,7 +13,7 @@ from rest_framework import generics, exceptions, permissions
 
 
 class PedidoViewSets(viewsets.ModelViewSet):
-    permission_classes[permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         return models.Pedido.objects.prefetch_related(user=self.request.user).all()

@@ -24,11 +24,8 @@ class PedidoSeralizer(serializers.ModelSerializer):
     total = serializers.SerializerMethodField()
 
     def get_total(self, obj):
-        try:
-            return get_total_pedido(obj)
 
-        except:
-            return 0
+        return sum([x.preco_venda * x.quantidade for x in obj.produtos.all()])
 
     class Meta:
         model = models.Pedido
