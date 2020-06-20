@@ -7,6 +7,12 @@
     box-sizing: border-box;
 }
 
+#Main{
+  background: #d3d3d8;
+  margin-bottom: 100px;
+}
+
+
 body {
     font: 400 14px Roboto, sans-serif;
     background: #d3d3d8;
@@ -55,6 +61,7 @@ form textarea {
     color: #FFF;
     font-weight: 700;
     display: inline-block;
+    margin-top: 20px;
     text-align: center;
     text-decoration: none;
     font-size: 18px;
@@ -88,83 +95,104 @@ form textarea {
 
 
 
+.error-form{
+  margin-top: 5px;
+  margin-left: 5px;
+  color: #8d0a0a;
+  font-weight: bold;
+}
+.error-form-correct{
+  margin-top: 5px;
+  margin-left: 5px;
+  color: #0083fd;
+  font-weight: bold;
+}
 
+.form{
+  width: 350px;
+  margin: auto;
+  margin-top: 50px;
+}
+  
+.card{
+  box-shadow: 1px 1px 5p #ccc;
+  background-color:white;
+  padding: 30px 20px;
+  border-radius: 5px;
+}
+  
+.card-top{
+  text-align: center;
+  margin-top: 20px;
+}
+.card-top h1{
+  font-family: 'Press Start 2P', cursive;
+  margin: 30px 0;
+}
+  
 .imglogin{
-    width: 100px;
-    height: 100px;
-  }
-  .form{
-    width: 350px;
-    margin:auto;
-    padding-top: 5px;
-    
-  }
+  border-radius: 10px;
+}
   
-  .card{
-    box-shadow: 1px 1px 5p #ccc;
-    background-color:white;
-    padding: 30px;
-    border-radius: 5px;
-    margin-top: 50px;
-  }
+label{
+  font-size: 20px;
+}
   
-  .card-top{
-    text-align: center;
-    margin-top: 20px;
-  }
-  .card-top h1{
-    font-family: 'Press Start 2P', cursive;
-    margin-bottom: 30px;
-  }
+input.checkbox{
+  width: 30px;
+  height: 16px;
+  color: #333;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-top: 5px;
+}
+.card-group{
+  margin-bottom: 0px;
+  padding: 15px;
+  border-radius: 10px;
+}
   
-  .imglogin{
-    border-radius: 10px;
-    
-  }
-  
-  label{
-    font-size: 20px;
-  }
-  
-  input.checkbox{
-    width: 30px;
-    height: 16px;
-    color: #333;
-    border-radius: 5px;
-    padding: 0 10px;
-    margin-top: 5px;
-  }
-  .card-group{
-    margin-bottom: 0px;
-    padding: 15px;
-    border-radius: 10px;
-  }
-  
-  .card-group > label{
-    widows: 100%; 
-    color:rgb(0, 0, 0);
-    display: block;
-  }
+.card-group > label{
+  widows: 100%; 
+  color:rgb(0, 0, 0);
+  display: block;
+}
   
   
-  .flex{
-    display: flex;
-  }
+.flex{
+  display: flex;
+}
 
-  .flew-between{
-    justify-content: space-between;
-  }
+.flew-between{
+  justify-content: space-between;
+}
   
-  .flextwo{
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 0px;
-    border-radius: 10px;
+.flextwo{
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 0px;
+  border-radius: 10px;
+}
   
-  }
-  
-  .ajustar{
-    margin-bottom: 0px;
-    padding: 20px;
-    border-radius: 10px;
-  }
+.ajustar{
+  margin-bottom: 0px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+.btn-logout-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.btn-logout-box div{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btn-logout-box p{
+  display: inline;
+}

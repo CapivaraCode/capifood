@@ -5,7 +5,7 @@ import './style.css'
 
 function Pagamento() {
   return (
-    <div>
+    <div id='Main'>
       <form className="form">
         <div className="card">
           <div className="card-top">

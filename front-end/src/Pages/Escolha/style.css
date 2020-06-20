@@ -1,42 +1,117 @@
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Lato&display=swap');
 
 
+.selecionado {
+  background: #000;
+}
+
+p{  margin: 0;
+  padding: 0;
+}
+
+.click{ 
+  cursor: pointer;
+}
+
 .card-group div{
   display: flex;
   justify-content: space-between;
 }
+div.page-escolha > div.card{
+  width: 350px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
 
-.products{
+
+div.page-escolha > .card >.card-top{
+  margin-bottom: 10px;
+}
+
+div.page-escolha > div.card .produtos{
   background: #f1f0f0;
   margin-top: 10px;
 }
-.products p{
-  margin-top: 5px;
-}
 
-.card-group h3{
+div.page-escolha .card-group h3{
   font-size: 18px;
-  margin: 0;
   color: #e02041;
+  margin: 5px 0 20px 0;
+  text-align: center;
   font-family: 'Balsamiq Sans', cursive;
 }
 
-.card-group div p{
+div.page-escolha .card p{
   font-family: 'Lato', sans-serif;
   font-size: 16px;
 }
 
-
-.button{
-  margin-top: 20px;
+div.page-escolha ul li{
+  width: 100%;
+  border-radius: 0 0 5px 5px;
+  background: #fff;
+  padding: 0 10px;
+ 
 }
 
-
-.flex{
+div.page-escolha .flex{
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.flew-between{
+div.page-escolha .flex p{
+  width: 33%;
+}
+
+div.page-escolha .caixa-cima {
+  padding: 10px;
+  width: 100%;
+  display: flex;
   justify-content: space-between;
+  background: #e02041;
+  border-radius: 4px 4px 0 0;
+}
+div.page-escolha .caixa-cima p{
+  color: #fff;
+}
+
+
+div.page-escolha .caixa-baixo {
+  width: 100%;
+  display: flex;
+  padding: 5px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  -moz-box-shadow:   1px 1px 6px 0px #ccc;
+  -webkit-box-shadow: 1px 1px 6px 0px #ccc;;
+  box-shadow:         1px 1px 6px 0px #ccc;
+}
+
+div.page-escolha .caixa-baixo div.div-qtd{
+  width: 25%;
+  display: flex;
+  align-items: center;
+}
+
+div.page-escolha .caixa-baixo .click{ 
+  cursor: pointer;
+}
+
+div.page-escolha .caixa-baixo p{
+  padding: 5px;
+}
+
+div.page-escolha .caixa-baixo p.center-text{
+  height: 30px;
+}
+
+div.page-escolha .preco{
+  text-align: right;
+}
+
+div.page-escolha .card .button{
+  margin-top: 20px;
 }

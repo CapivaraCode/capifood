@@ -26,10 +26,12 @@ class PedidoSeralizer(serializers.ModelSerializer):
 
 
 class PedidoCreateSeralizer(serializers.Serializer):
+
     user = serializers.HiddenField(default=serializers.CurrentUserDefault())
     produtos = ProdutoPedidoCreateSeralizer(many=True)
 
     def create(self, validated_data):
+        breakpoint()
         produtos = [x["produto_id"] for x in validated_data["produtos"]]
         produtos = models.Produto.objects.filter(id__in=produtos)
         pedido = models.Pedido()
