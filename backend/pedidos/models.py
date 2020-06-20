@@ -28,6 +28,7 @@ class Pedido(models.Model):
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE)
     status = models.IntegerField()
     produtos = models.ManyToManyField(ProdutoPedido, related_name="produtos")
+    created_at = models.DateTimeField(null=True, blank=True)
 
     def total_pedido(self,):
         return sum([x.preco_venda * x.quantidade for x in pedido.produtos])
