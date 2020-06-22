@@ -67,7 +67,7 @@ function Pedido() {
           </div>
 
           <div className="valor flex">
-            <h3>Valor : 25,00</h3>
+            <h3>{pedidodesc.total}</h3>
           </div>
           <div className='flex  refazer-pedido'>
             <Link to='/escolha'>Refazer Pedido</Link>
