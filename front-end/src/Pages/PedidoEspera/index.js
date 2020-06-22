@@ -32,7 +32,7 @@ function PedidoEspera() {
 
     loadPedido()
 
-  }, []);
+  }, [pedidodesc.status]);
 
 
   function handleLogout() {
@@ -72,6 +72,9 @@ function PedidoEspera() {
               ))}
             </ul>
           </div>
+
+
+          {pedidodesc.status}
 
           <div className="valor flex">
             <h3>Total: {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(pedidodesc.total)}</h3>

@@ -29,7 +29,6 @@ class PedidoAtual(generics.RetrieveAPIView):
         pedido = (
             models.Pedido.objects.prefetch_related()
             .filter(user=request.user)
-            .filter(status=1)
             .last()
         )
         if pedido is None:
