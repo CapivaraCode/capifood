@@ -67,7 +67,7 @@ function Pagamento() {
           <div className="btn">
             <button className='button flex' type="submit">
               <MdPayment size='30' color='#fff' className='icon-pay' />
-              <Link to='/'>PAGAR</Link>
+              <Link to='/pedido/pag/finalizado'>PAGAR</Link>
             </button>
           </div>
         </div>

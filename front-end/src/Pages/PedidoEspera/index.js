@@ -24,6 +24,8 @@ function Pedido() {
       const response = await api.get('/pedido-atual/')
 
       json = response.data;
+      console.log(json);
+
 
       setPedidoDesc(json)
     }
@@ -74,12 +76,8 @@ function Pedido() {
           <div className="valor flex">
             <h3>Total: {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(pedidodesc.total)}</h3>
           </div>
-          <div className='flex  refazer-pedido'>
-            <Link to='/escolha'>Refazer Pedido</Link>
-          </div>
-
           <div className="btn">
-            <Link className='button' to='/pedido/pag' type='button'>Finalizar</Link>
+            <Link className='button' to='/finish' type='button'>Finalizar</Link>
           </div>
         </div>
       </form>

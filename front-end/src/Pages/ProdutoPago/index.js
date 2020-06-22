@@ -1,15 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import { FiCheckCircle } from 'react-icons/fi'
 import './style.css'
 
 function ProdutoPago() {
+
+  const history = useHistory();
+
+  useEffect(() => {
+
+    function returnToPedido() {
+      setTimeout(() => {
+        history.push('/pedido/desc');
+      }, 5000);
+    }
+
+    returnToPedido();
+
+  }, []);
+
+
+
   return (
     <div className='Produto-Pago'>
-      <FiCheckCircle color='#fff' size='100px'></FiCheckCircle>
       <div>
-        <h1>Pagamento efetuado com sucesso</h1>
+        <FiCheckCircle color='#fff' size='100px'></FiCheckCircle>
+        <div>
+          <h1>Pagamento efetuado com sucesso!!!</h1>
+        </div>
+        <Link className='button' to='/pedido/desc' type="submit">Retornando ao pedido em 5s...</Link>
       </div>
-      <button className='button' type="submit">Retornar ao Pedido</button>
     </div >
   )
 }

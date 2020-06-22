@@ -13,14 +13,22 @@ div.Produto-Pago{
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-}
+} 
 
 div.Produto-Pago div{
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-
-div.Produto-Pago button{
-  background: #0000007d;
-  width: 70%;
+div.Produto-Pago div h1{
+  text-align: center;
+  margin: 30px 0;
+  color: #fff;
+}
+div.Produto-Pago a{
+  color: #fff;
+  margin: 0;
+  background: #000;
+  width: 85%;
 }

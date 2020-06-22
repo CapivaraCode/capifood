@@ -11,6 +11,7 @@ import Escolha from './Pages/Escolha'
 import Pedido from './Pages/Pedido'
 import Pagamento from './Pages/Pagamento'
 import ProdutoPago from './Pages/ProdutoPago'
+import PedidoEspera from './Pages/PedidoEspera'
 import './global.css'
 
 function App() {
@@ -21,8 +22,9 @@ function App() {
         <Route exact path="/cadastrar" component={Cadastro} />
         <Route exact path="/escolha" component={Escolha} />
         <Route exact path="/pedido" component={Pedido} />
+        <Route exact path="/pedido/desc" component={PedidoEspera} />
         <Route exact path="/pedido/pag" component={Pagamento} />
-        <Route exact path="/pedido/pag/pago" component={ProdutoPago} />
+        <Route exact path="/pedido/pag/finalizado" component={ProdutoPago} />
       </Switch>
     </Router>
   )

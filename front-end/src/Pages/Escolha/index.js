@@ -145,7 +145,7 @@ function Escolha() {
                     <p className='center-text'>{produto.qtd}</p>
                     <FiPlus className='click' color='#e02041' onClick={() => addQuantidade(produto)} size='20'></FiPlus>
                   </div>
-                  <p className='center-text'>R$: {produto.preco}</p>
+                  <p className='center-text'>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(produto.preco)}</p>
                 </div>
               </li>
             ))}
@@ -170,7 +170,7 @@ function Escolha() {
                     <p className='center-text'>{produto.qtd}</p>
                     <FiPlus className='click' color='#e02041' onClick={() => addQuantidade(produto)} size='20'></FiPlus>
                   </div>
-                  <p className='center-text'>R$: {produto.preco}</p>
+                  <p className='center-text'>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(produto.preco)}</p>
                 </div>
               </li>
             ))}
@@ -195,7 +195,7 @@ function Escolha() {
                     <p className='center-text'>{produto.qtd}</p>
                     <FiPlus className='click' color='#e02041' onClick={() => addQuantidade(produto)} size='20'></FiPlus>
                   </div>
-                  <p className='center-text'>R$: {produto.preco}</p>
+                  <p className='center-text'>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(produto.preco)}</p>
                 </div>
               </li>
             ))}
