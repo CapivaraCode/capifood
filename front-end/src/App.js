@@ -10,8 +10,9 @@ import Cadastro from './Pages/Cadastro'
 import Escolha from './Pages/Escolha'
 import Pedido from './Pages/Pedido'
 import Pagamento from './Pages/Pagamento'
-import ProdutoPago from './Pages/ProdutoPago'
 import PedidoEspera from './Pages/PedidoEspera'
+import Finish from './loadingPages/Finish'
+import ProdutoPago from './loadingPages/ProdutoPago'
 import './global.css'
 
 function App() {
@@ -19,12 +20,15 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={Login} />
+        <Route exact path="/finish" component={Finish} />
         <Route exact path="/cadastrar" component={Cadastro} />
         <Route exact path="/escolha" component={Escolha} />
         <Route exact path="/pedido" component={Pedido} />
         <Route exact path="/pedido/desc" component={PedidoEspera} />
         <Route exact path="/pedido/pag" component={Pagamento} />
         <Route exact path="/pedido/pag/finalizado" component={ProdutoPago} />
+
+
       </Switch>
     </Router>
   )

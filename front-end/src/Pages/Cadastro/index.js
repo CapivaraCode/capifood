@@ -1,11 +1,16 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { useHistory } from 'react-router-dom'
+
 
 import api from '../../services/api'
 
 import './style.css'
 
 function Cadastrar() {
+
+  const history = useHistory();
+
 
   const { register, handleSubmit, errors } = useForm();
 
@@ -27,6 +32,10 @@ function Cadastrar() {
 
 
     api.post('/users/', user)
+
+    setTimeout(() => {
+      history.push("/");
+    }, 1000);
 
   }
 

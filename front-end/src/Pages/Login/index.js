@@ -21,15 +21,30 @@ function Login() {
 
     console.log(dadosLogin);
 
+    try {
+      api.post('/users/login/', dadosLogin)
+        .then(
+          response => {
+            console.log(response.data);
+            localStorage.setItem('userLogon', JSON.stringify(response.data))
+            setTimeout(() => {
+              history.push("/escolha");
+            }, 1000)
+          }
+        )
 
-    api.post('/users/login/', dadosLogin)
-      .then(
-        response => {
-          console.log(response.data);
-          localStorage.setItem('userLogon', JSON.stringify(response.data))
-          history.push("/escolha");
-        }
-      )
+    } catch (error) {
+
+      console.log(error);
+
+
+    }
+
+
+
+
+
+
 
 
 

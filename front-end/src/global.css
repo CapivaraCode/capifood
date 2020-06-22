@@ -34,7 +34,7 @@ form input.input {
     border: 1px solid #dcdce6;
     border-radius: 5px;
     padding: 0 10px;
-    margin-top: 5px;
+    margin-top: 15px;
 }
 form input.input:focus {
   border: 1px solid #e02041;

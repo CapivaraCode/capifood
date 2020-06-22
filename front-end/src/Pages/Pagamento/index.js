@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { MdPayment } from "react-icons/md";
 import './style.css'
 
 function Pagamento() {
@@ -64,12 +63,10 @@ function Pagamento() {
               </select>
             </div>
           </div>
-          <div className="btn">
-            <button className='button flex' type="submit">
-              <MdPayment size='30' color='#fff' className='icon-pay' />
-              <Link to='/pedido/pag/finalizado'>PAGAR</Link>
-            </button>
-          </div>
+
+
+          <Link className='button ' to='/pedido/pag/finalizado'>PAGAR</Link>
+
         </div>
       </form>
     </div >

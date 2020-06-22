@@ -9,7 +9,7 @@ import api from '../../services/api'
 
 import './style.css'
 
-function Pedido() {
+function PedidoEspera() {
 
   const history = useHistory();
 
@@ -85,4 +85,4 @@ function Pedido() {
   )
 }
 
-export default Pedido;
+export default PedidoEspera;
