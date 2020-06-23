@@ -1,6 +1,7 @@
 from django.db import models
 from users.models import MyUser
 from produtos.models import Produto
+from django.utils.safestring import mark_safe
 
 
 class ProdutoPedido(models.Model):
@@ -26,9 +27,29 @@ class ProdutoPedido(models.Model):
 
 class Pedido(models.Model):
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE)
-    status = models.IntegerField()
+    STATUS_CHOICE = [
+        ("PENDENTE", 1),
+        ("ENTREGE", 2),
+    ]
+    status = models.IntegerField(choices=STATUS_CHOICE)
     produtos = models.ManyToManyField(ProdutoPedido, related_name="produtos")
-    created_at = models.DateTimeField(null=True, blank=True)
+    created_at = models.DateTimeField(
+        verbose_name="data do pedido", null=True, blank=True
+    )
 
     def total_pedido(self,):
         return sum([x.preco_venda * x.quantidade for x in pedido.produtos])
+
+    @property
+    def total(self,):
+        return sum([x.preco_venda * x.quantidade for x in self.produtos.all()])
+
+    @property
+    def items(self,):
+
+        return mark_safe(
+            "<br>".join(
+                [f"{x.produto.nome}, qtd: {x.quantidade}" for x in self.produtos.all()]
+            )
+        )
+
