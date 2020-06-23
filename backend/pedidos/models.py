@@ -28,8 +28,8 @@ class ProdutoPedido(models.Model):
 class Pedido(models.Model):
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE)
     STATUS_CHOICE = [
-        ("PENDENTE", 1),
-        ("ENTREGE", 2),
+        (1,"PAGO"),
+        (2,"ENTREGE"),
     ]
     status = models.IntegerField(choices=STATUS_CHOICE)
     produtos = models.ManyToManyField(ProdutoPedido, related_name="produtos")

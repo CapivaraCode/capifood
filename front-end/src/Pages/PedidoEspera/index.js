@@ -46,8 +46,6 @@ function PedidoEspera() {
 
       if (json.status === 1) {
         a();
-      } else if (json.status === 2) {
-        a();
       }
       a();
 
