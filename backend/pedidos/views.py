@@ -16,7 +16,7 @@ class PedidoViewSets(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return models.Pedido.objects.prefetch_related(user=self.request.user).all()
+        return models.Pedido.objects.filter(user=self.request.user)
 
     def get_serializer_class(self):
         if self.request.method == "POST":
