@@ -11,9 +11,9 @@ div.btn .button{
   margin: 0;
 }
 
-.refazer-pedido{
+.page_pedido_desc .refazer-pedido{
   justify-content: flex-end;
-  padding: 20px;
+  padding: 0;
 }
 
 
@@ -65,3 +65,16 @@ div.btn .button{
 .page_pedido_desc form .card ul li {
   padding: 5px;
 }
+
+.flex-b
+{
+  justify-content: space-between;
+}
+
+.page_pedido_desc .statusPedido{
+
+  padding: 5px;
+  background: rgb(51, 255, 0);
+
+}
+

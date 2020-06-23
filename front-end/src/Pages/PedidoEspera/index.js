@@ -24,15 +24,45 @@ function PedidoEspera() {
       const response = await api.get('/pedido-atual/')
 
       json = response.data;
-      console.log(json);
 
 
       setPedidoDesc(json)
+
     }
 
+    function a() {
+      setTimeout(() => {
+        observar()
+      }, 5000);
+    }
+
+    async function observar() {
+
+      let json;
+
+      const response = await api.get('/pedido-atual/')
+
+      json = response.data;
+
+      if (json.status === 1) {
+        a();
+      } else if (json.status === 2) {
+        a();
+      }
+      a();
+
+      setPedidoDesc(json)
+
+    }
+
+    a()
     loadPedido()
 
-  }, [pedidodesc.status]);
+  }, []);
+
+
+
+
 
 
   function handleLogout() {

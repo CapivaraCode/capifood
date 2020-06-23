@@ -24,6 +24,8 @@ function Pedido() {
       const response = await api.get('/pedido-atual/')
 
       json = response.data;
+      console.log(json);
+      /* /pedidos/40/ */
 
       setPedidoDesc(json)
     }
@@ -36,6 +38,11 @@ function Pedido() {
   function handleLogout() {
     localStorage.clear();
     history.push('/');
+  }
+
+  async function deletarPedidoAtual() {
+    await api.delete(`/pedidos/${pedidodesc.id}/`)
+
   }
 
   return (
@@ -74,12 +81,20 @@ function Pedido() {
           <div className="valor flex">
             <h3>Total: {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(pedidodesc.total)}</h3>
           </div>
-          <div className='flex  refazer-pedido'>
-            <Link to='/escolha'>Refazer Pedido</Link>
+
+          <div className='flex flex-b'>
+            <div className='statusPedido'>
+              <p>Em preparo</p>
+            </div>
+
+            <div className='refazer-pedido'>
+              <button type='button' onClick={deletarPedidoAtual} >Refazer Pedido</button>
+            </div>
           </div>
 
+
           <div className="btn">
-            <Link className='button' to='/pedido/pag' type='button'>Finalizar</Link>
+            <Link className='button' to='pedido/pag' type='button'>Finalizar</Link>
           </div>
         </div>
       </form>
