@@ -45,6 +45,10 @@ class Pedido(models.Model):
         return sum([x.preco_venda * x.quantidade for x in self.produtos.all()])
 
     @property
+    def cliente(self,):
+        return self.user.username
+
+    @property
     def items(self,):
 
         return mark_safe(

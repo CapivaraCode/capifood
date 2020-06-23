@@ -21,24 +21,24 @@ function Login() {
 
     console.log(dadosLogin);
 
-    try {
-      api.post('/users/login/', dadosLogin)
-        .then(
-          response => {
-            console.log(response.data);
-            localStorage.setItem('userLogon', JSON.stringify(response.data))
-            setTimeout(() => {
-              history.push("/escolha");
-            }, 1000)
-          }
-        )
 
-    } catch (error) {
+    api.post('/users/login/', dadosLogin)
+      .then(
+        response => {
+          console.log(response.data);
+          localStorage.setItem('userLogon', JSON.stringify(response.data))
+          setTimeout(() => {
+            history.push("/escolha");
+          }, 1000)
+        }
+      )
+      .catch(
+        function (motivo) {
+          alert('Senha Inválida')
+        }
+      )
 
-      console.log(error);
 
-
-    }
 
 
 

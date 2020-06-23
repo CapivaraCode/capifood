@@ -5,7 +5,7 @@ from django.utils.safestring import mark_safe
 
 
 class PedidoAdmin(admin.ModelAdmin):
-    list_display = ("created_at", "items", "total")
+    list_display = ("created_at","cliente", "items", "total")
 
 
 admin.site.register(models.Pedido, PedidoAdmin)
