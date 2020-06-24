@@ -47,7 +47,6 @@ function PedidoEspera() {
       if (json.status === 1) {
         a();
       }
-      a();
 
       setPedidoDesc(json)
     }
@@ -102,11 +101,11 @@ function PedidoEspera() {
             <div className='box-status'>
               {pedidodesc.status === 1 ? (
                 <div className='status-pago'>
-                  PedidoPago
+                  PedidoEmAndamento
                 </div>
               ) : (
                   <div className="status-entregue">
-                    Pedido Entregue
+                    PedidoPronto
                   </div>
                 )}
             </div>

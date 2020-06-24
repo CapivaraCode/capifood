@@ -11,9 +11,8 @@ function Finish() {
 
     function returnToPedido() {
       setTimeout(() => {
-        history.push('/');
-        localStorage.clear()
-      }, 5000);
+        history.push('/escolha');
+      }, 3000);
     }
 
     returnToPedido();
@@ -29,7 +28,7 @@ function Finish() {
         <div>
           <h1>Obrigado por comprar com nossa loja!!!</h1>
         </div>
-        <Link className='button' to='/login' type="submit">Retornando a Página Principal em 5s...</Link>
+        <Link className='button' to='/escolha' type="submit">Retornando a  em 3s...</Link>
       </div>
     </div >
   )

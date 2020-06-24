@@ -12,7 +12,7 @@ function ProdutoPago() {
     function returnToPedido() {
       setTimeout(() => {
         history.push('/pedido/desc');
-      }, 5000);
+      }, 3000);
     }
 
     returnToPedido();
@@ -28,7 +28,7 @@ function ProdutoPago() {
         <div>
           <h1>Pagamento efetuado com sucesso!!!</h1>
         </div>
-        <Link className='button' to='/pedido/desc' type="submit">Retornando ao pedido em 5s...</Link>
+        <Link className='button' to='/pedido/desc' type="submit">Retornando ao pedido em 3s...</Link>
       </div>
     </div >
   )

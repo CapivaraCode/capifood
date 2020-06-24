@@ -42,7 +42,7 @@ function Pedido() {
 
   async function deletarPedidoAtual() {
     await api.delete(`/pedidos/${pedidodesc.id}/`)
-
+    history.push('/escolha');
   }
 
   return (
