@@ -111,9 +111,6 @@ function PedidoEspera() {
             </div>
           </div>
 
-
-
-
           <div className="valor flex">
             <h3>Total: {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(pedidodesc.total)}</h3>
           </div>
