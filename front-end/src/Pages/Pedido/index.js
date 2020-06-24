@@ -83,10 +83,6 @@ function Pedido() {
           </div>
 
           <div className='flex flex-b'>
-            <div className='statusPedido'>
-              <p>Em preparo</p>
-            </div>
-
             <div className='refazer-pedido'>
               <button type='button' onClick={deletarPedidoAtual} >Refazer Pedido</button>
             </div>

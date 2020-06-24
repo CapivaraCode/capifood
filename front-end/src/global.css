@@ -7,6 +7,10 @@
     box-sizing: border-box;
 }
 
+a{
+  text-decoration: none;
+}
+
 #Main{
   background: #d3d3d8;
   margin-bottom: 100px;
@@ -163,7 +167,7 @@ input.checkbox{
   display: flex;
 }
 
-.flew-between{
+.flex-between{
   justify-content: space-between;
 }
   

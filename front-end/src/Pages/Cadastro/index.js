@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 
 
 import api from '../../services/api'
@@ -110,6 +110,7 @@ function Cadastrar() {
             }
           </div>
 
+          <span>Caso já tenha cadastro, </span><Link to='/'> Clique Aqui</Link>
 
           <button className='button' type='submit'>Finalizar</button>
         </div>

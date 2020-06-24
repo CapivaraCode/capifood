@@ -65,3 +65,23 @@ div.btn .button{
 .page_pedido_desc form .card ul li {
   padding: 5px;
 }
+
+.page_pedido_desc div.flex-between{
+  padding: 20px;
+}
+
+.page_pedido_desc div.status-pago{
+  background: rgb(255, 145, 0);
+  color: #fff;
+  font-weight: bold;
+  padding: 5px;
+}
+.page_pedido_desc h4{
+  padding: 5px;
+}
+.page_pedido_desc div.status-entregue{
+  background: rgb(115, 255, 0);
+  color: #fff;
+  font-weight: bold;
+  padding: 5px;
+}

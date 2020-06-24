@@ -68,9 +68,13 @@ div.btn .button{
 
 .flex-b
 {
-  justify-content: space-between;
+  justify-content: flex-end;
+  padding: 10px;
 }
-
+.flex-b button{
+  border: none;
+  padding: 5px;
+}
 .page_pedido_desc .statusPedido{
 
   padding: 5px;

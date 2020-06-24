@@ -50,18 +50,12 @@ function PedidoEspera() {
       a();
 
       setPedidoDesc(json)
-
     }
 
     a()
     loadPedido()
 
   }, []);
-
-
-
-
-
 
   function handleLogout() {
     localStorage.clear();
@@ -101,8 +95,25 @@ function PedidoEspera() {
             </ul>
           </div>
 
+          <div className='flex flex-between'>
+            <div >
+              <h4>Status do pedido:</h4>
+            </div>
+            <div className='box-status'>
+              {pedidodesc.status === 1 ? (
+                <div className='status-pago'>
+                  PedidoPago
+                </div>
+              ) : (
+                  <div className="status-entregue">
+                    Pedido Entregue
+                  </div>
+                )}
+            </div>
+          </div>
 
-          {pedidodesc.status}
+
+
 
           <div className="valor flex">
             <h3>Total: {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(pedidodesc.total)}</h3>
